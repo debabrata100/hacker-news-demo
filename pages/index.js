@@ -6,7 +6,7 @@ import { HOME_NAV } from "../utils/constants";
 
 export async function getServerSideProps(context){
     const { page = 0 } = context.query;
-    const url = getNewsApiUrl({type: HOME_NAV,page});
+    const url = getNewsApiUrl({slug: HOME_NAV,page});
     try{
         const data = await fetch(url);
         const dataJson = await data.json();

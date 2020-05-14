@@ -5,16 +5,23 @@
 .row{
     display: flex;
     width: 100%;
-    padding: 8px 60px;
+    padding: 4px 60px;
     box-sizing: border-box;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     font-size: 14px;
+    position: relative;
 }
 .row:nth-of-type(even) {
     background: #e2e2e2;
   }
+.title{
+    font-weight: bold;
+}
+.infoRows .info{
+    float: left;
+}
 .comment{
     width: 50px;
     text-align: left;
@@ -72,9 +79,59 @@
 }
 .moreButton{
     cursor: pointer;
-    padding: 16px 140px;
+    padding: 16px 130px;
 }
 .moreButton a{
     text-decoration: none;
     color: #ff6600;
+}
+.hideOnDesktop{
+    display: none;;
+}
+@media (max-width: 767px){
+    .comment, .vote{
+        position: absolute;
+        margin-right: 0px;
+        font-size: 10px;
+    }
+    .comment{
+        right: 8px;
+        top: 16px;
+        text-align: right;
+    }
+    .vote{
+        right: 8px;
+        bottom: 8px;
+        text-align: right;
+    }
+    .comment ~div{
+        margin-right: 0px;
+    }
+    .upvote,.downvote{
+        position: absolute;
+        left: 8px;
+    }
+    .row{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 8px 0px 8px 32px;
+        min-height: 70px;
+    }
+    .title{
+        font-size: 14px;
+        max-width: 90%;
+    }
+    .info{
+        font-size: 12px;
+    }
+    .infoRows{
+        width: 90%;
+    }
+    .moreButton{
+        text-align: center;
+    }
+    .hideOnDesktop{
+        display: block;
+    }
 }

@@ -42,16 +42,16 @@ export const getFormattedNews = (newsList) => {
     }));
     return formattedData;
 }
-export const getNewsApiUrl = ({type, page}) => { 
+export const getNewsApiUrl = ({slug, page}) => { 
     let baseUrl = 'https://hn.algolia.com/api/v1';
     if(page > 0){
-        type = "default";
+        slug = "default";
     }
-    switch(type){
+    switch(slug){
         case HOME_NAV:
             return `${baseUrl}/search?tags=front_page&page=${page}`;
         case TOP_NAV:
-            return `${baseUrl}/search_by_date?numericFilters=points%3E1000`;
+            return `${baseUrl}/search_by_date?numericFilters=points>1000`;
         case NEW_NAV:
             return `${baseUrl}/search_by_date?tags=story`;
         default:
