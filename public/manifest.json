@@ -1,0 +1,9 @@
+{
+    "name": "hacker-news-demo",
+    "short_name": "hacker-demo",
+    "theme_color": "#ff6600",
+    "background_color": "#F6F6EF",
+    "display": "browser",
+    "scope": "/",
+    "start_url": "https://hacker-news-demo.now.sh/ "
+  }

@@ -6,14 +6,16 @@ export default ({ children, nav }) => {
     return (
         <div className={styles.container}>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta
-                    name="description"
-                    content="A clone of Hacker News"
-                />
-                <meta name="og:title" content={siteTitle} />
+                <meta charset='utf-8' />
+                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+                <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
+                <meta name='description' content='A clone of Hacker News' />
+                <meta name='keywords' content='Hacker News Clone Demo' />
                 <title>{siteTitle}</title>
+                <link rel="manifest" href="/manifest.json" />
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="theme-color" content="#ff6600"/>
+                <meta name="og:title" content={siteTitle} />
             </Head>
             <header className={styles.header} data-testid="header">
                 <Link href="/"><a><img className={styles.headerImage} src="/logo.gif" alt="Logo" height="13" width="13" /></a></Link>
