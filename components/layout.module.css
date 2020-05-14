@@ -33,6 +33,14 @@
 .main{
     background-color: #f6f6ef;
 }
+.footer{
+    width: 100%;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    text-align: center;
+    border-top: 1px solid orange;
+    background-color: #f6f6ef;
+}
 @media(max-width: 767px){
     .container{
         padding: 0px 0px;

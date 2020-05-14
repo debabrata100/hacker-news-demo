@@ -12,6 +12,9 @@
     align-items: center;
     font-size: 14px;
 }
+.row:nth-of-type(even) {
+    background: #e2e2e2;
+  }
 .comment{
     width: 50px;
     text-align: left;
@@ -40,7 +43,7 @@
   height: 0px;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 10px solid grey;
+  border-top: 10px solid orange;
   cursor: pointer;
 }
 .downvote{
@@ -51,6 +54,7 @@
   border-top: 10px solid grey;
   transform: rotate(180deg);
   cursor: pointer;
+  
 }
 .upvote:hover, .downvote:hover{
     cursor: pointer;
@@ -65,4 +69,12 @@
     align-items: center;
     justify-content: center;
     color: red;
+}
+.moreButton{
+    cursor: pointer;
+    padding: 16px 140px;
+}
+.moreButton a{
+    text-decoration: none;
+    color: #ff6600;
 }
