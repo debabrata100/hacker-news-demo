@@ -1,6 +1,6 @@
 import { HOME_NAV, TOP_NAV, NEW_NAV } from "./constants";
 
-const getDomianName = (url) => {
+export const getDomianName = (url) => {
     if(url){
         const urlObj = new URL(url);
         return urlObj.host;

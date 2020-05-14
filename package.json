@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,13 @@
     "next": "^9.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.7.0",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^26.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
+    "react-test-renderer": "^16.13.1"
   }
 }

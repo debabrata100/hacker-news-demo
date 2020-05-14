@@ -15,13 +15,13 @@ export default ({ children, nav }) => {
                 <meta name="og:title" content={siteTitle} />
                 <title>{siteTitle}</title>
             </Head>
-            <header className={styles.header}>
+            <header className={styles.header} data-testid="header">
                 <Link href="/"><a><img className={styles.headerImage} src="/logo.gif" alt="Logo" height="13" width="13" /></a></Link>
                 <Link href="/top"><a className={nav === 'top' ? styles.active : ''}>top</a></Link> | 
                 <Link href="/new"><a className={nav === 'new' ? styles.active : ''}>new</a></Link>
             </header>
             <main className={styles.main}>{ children }</main>
-            <footer className={styles.footer}>
+            <footer className={styles.footer} data-testid="footer">
                 <span>Made with &hearts; by Debabrata</span>
             </footer>
         </div>

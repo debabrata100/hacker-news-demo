@@ -7,7 +7,7 @@ const getVoteClass = (votes) =>{
     return votes > 100 ? styles.excellent : (votes > 90 ? styles.good : ''); 
 }
 export default ({ newsList, error, onHideNews, onVote }) => {
-    const router = useRouter();
+    const router = useRouter() || { query: {}};
     const { slug , page = 0 } = router.query;
     const moreButtonLink = getMoreButtonLink({ slug, page });
     return (<div className={styles.container}>

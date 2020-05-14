@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div
+  className="container"
+>
+  <header
+    className="header"
+    data-testid="header"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <img
+        alt="Logo"
+        className="headerImage"
+        height="13"
+        src="/logo.gif"
+        width="13"
+      />
+    </a>
+    <a
+      className=""
+      href="/top"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      top
+    </a>
+     |
+    <a
+      className=""
+      href="/new"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      new
+    </a>
+  </header>
+  <main
+    className="main"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="moreButton"
+      >
+        <a
+          href="?page=1"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          More
+        </a>
+      </div>
+    </div>
+  </main>
+  <footer
+    className="footer"
+    data-testid="footer"
+  >
+    <span>
+      Made with ♥ by Debabrata
+    </span>
+  </footer>
+</div>
+`;
