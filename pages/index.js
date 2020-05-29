@@ -18,9 +18,15 @@ export async function getServerSideProps(context){
 }
 
 export default function Home ({ newsList = null, page, error }) {
+    return (
+        <NewsDataComponent nav={HOME_NAV} newsList={newsList} page={page} error={error} />
+    );
+}
+
+export function NewsDataComponent({nav, newsList = null, page, error}){
     const { renderedNews, graphData, upVote, downVote, onHideNews } = useRenderedNews({newsList, page, error });
     return (
-        <Layout nav={HOME_NAV}>
+        <Layout nav={nav}>
             <NewsList upVote={upVote} downVote={downVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
             <Graph data={graphData} />
         </Layout>

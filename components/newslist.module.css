@@ -43,6 +43,7 @@
 }
 .info{
     font-size: 10px;
+    margin-right: 4px;
 }
 .info.bold{
     font-weight: bold;
