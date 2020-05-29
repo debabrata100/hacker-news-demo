@@ -15,7 +15,8 @@
     "next": "^9.4.0",
     "next-pwa": "^2.4.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "recharts": "^1.8.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.7.0",

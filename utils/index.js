@@ -26,19 +26,31 @@ const calculateTimeSince = timeStamp => {
 }
 export const isVoted = id => {
     const upvotes = getNewsFromLocal();
-    return upvotes.includes(id);
+    return id in upvotes;
+}
+const addUpvotesFromLocal = ({id, otherVotes}) =>{
+    const upvotes = getNewsFromLocal();
+    return parseInt(otherVotes,10) + (upvotes[id] || 0);
 }
 export const getFormattedNews = (newsList) => {
     const formattedData = newsList.hits.map((news,i)=>({
         id: news.objectID,
         title: news.title,
         comments: news.num_comments || 0,
-        upvotes: news.points,
+        points: news.points,
+        upvotes: addUpvotesFromLocal({id: news.objectID, otherVotes: news.points}),
         isVoted: isVoted(news.objectID),
         author: news.author,
         domain: getDomianName(news.url),
         postedOn: calculateTimeSince(news.created_at),
         display: true
+    }));
+    return formattedData;
+}
+export const getFormattedGraphData = (newsList) => {
+    const formattedData = newsList.map(news=>({
+        id: news.id,
+        votes: news.upvotes
     }));
     return formattedData;
 }
@@ -70,6 +82,10 @@ export function storeNewsToLocal(news){
     localStorage.setItem("upvotes", JSON.stringify(news));
 }
 export function getNewsFromLocal(){
-    var upvotes = JSON.parse(localStorage.getItem("upvotes"));
-    return upvotes || [];
+    try{
+        var upvotes = JSON.parse(localStorage.getItem("upvotes"));
+        return upvotes || {};
+    }catch(err){
+        return {};
+    }
 }

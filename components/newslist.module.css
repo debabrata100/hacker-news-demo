@@ -1,6 +1,8 @@
 .container{
     display: flex;
     flex-direction: column;
+    border-bottom: 2px solid #ff6600;
+    margin-bottom: 16px;
 }
 .row{
     display: flex;
@@ -41,6 +43,7 @@
 }
 .info{
     font-size: 10px;
+    margin-right: 4px;
 }
 .info.bold{
     font-weight: bold;
@@ -48,17 +51,17 @@
 .upvote{
   width: 0px;
   height: 0px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid orange;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid grey;
   cursor: pointer;
 }
 .downvote{
  width: 0px;
   height: 0px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid grey;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid grey;
   transform: rotate(180deg);
   cursor: pointer;
   
@@ -88,6 +91,12 @@
 .hideOnDesktop{
     display: none;;
 }
+.voteActions{
+    flex-flow: column wrap;
+}
+.voteActions > div{
+    margin: 2px;
+}
 @media (max-width: 767px){
     .comment, .vote{
         position: absolute;
@@ -107,7 +116,7 @@
     .comment ~div{
         margin-right: 0px;
     }
-    .upvote,.downvote{
+    .voteActions{
         position: absolute;
         left: 8px;
     }

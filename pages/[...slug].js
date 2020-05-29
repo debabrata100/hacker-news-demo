@@ -1,7 +1,5 @@
-import Layout from "../components/Layout";
-import NewsList from "../components/NewsList";
 import { getNewsApiUrl } from "../utils";
-import { useRenderedNews } from ".";
+import { NewsDataComponent } from ".";
 
 export async function getServerSideProps(context){
     const { slug , page = 0 } = context.query;
@@ -16,10 +14,7 @@ export async function getServerSideProps(context){
 }
 
 export default function Slug ({ newsList = null, page, nav, error }) {
-    const { renderedNews, toggleVote, onHideNews } = useRenderedNews({newsList, page, error });
     return (
-        <Layout nav={nav}>
-            <NewsList onVote={toggleVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
-        </Layout>
+        <NewsDataComponent nav={nav} newsList={newsList} page={page} error={error} />
     );
 }
