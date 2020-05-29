@@ -17,10 +17,10 @@ export async function getServerSideProps(context){
 }
 
 export default function Home ({ newsList = null, page, error }) {
-    const { renderedNews, toggleVote, onHideNews } = useRenderedNews({newsList, page, error });
+    const { renderedNews, upVote, downVote, onHideNews } = useRenderedNews({newsList, page, error });
     return (
         <Layout nav={HOME_NAV}>
-            <NewsList onVote={toggleVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
+            <NewsList upVote={upVote} downVote={downVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
         </Layout>
     );
 }
@@ -37,23 +37,38 @@ export function useRenderedNews({ newsList, page, error }){
         const displayedNews = renderedNews.filter(news=>news.id !== id);
         setRenderedNews(displayedNews);
     }
-    const toggleVote = ({id, isVoted}) => {
+    const upVote = ({id}) => {
         let upvotes = getNewsFromLocal();
-        if(isVoted){
-            storeNewsToLocal([...upvotes,id]);
+        if(id in upvotes){
+            upvotes[id] += 1;
         }else{
-            upvotes = upvotes.filter(oid=> oid !== id );
-            storeNewsToLocal(upvotes);
+            upvotes[id] = 1;
         }
+        saveVotes({id,upvotes});
+    }
+    const downVote = ({id}) => {
+        let upvotes = getNewsFromLocal();
+        if(id in upvotes){
+            upvotes[id] -= 1;
+        }else{
+            upvotes[id] = -1;
+        }
+        saveVotes({id, upvotes});
+    }
+    const saveVotes = ({id, upvotes}) => {
+        storeNewsToLocal(upvotes); // save vote to local
+
+        // update state to render votes
         const displayedNews = [...renderedNews];
         const newsIndex = renderedNews.findIndex(news=> news.id === id);
-        displayedNews[newsIndex].isVoted = isVoted;
+        displayedNews[newsIndex].upvotes = displayedNews[newsIndex].points+upvotes[id];
         setRenderedNews(displayedNews);
     }
     return {
         renderedNews,
         setRenderedNews,
         onHideNews,
-        toggleVote
+        upVote, 
+        downVote
     }
 }

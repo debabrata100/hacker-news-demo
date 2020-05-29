@@ -16,10 +16,10 @@ export async function getServerSideProps(context){
 }
 
 export default function Slug ({ newsList = null, page, nav, error }) {
-    const { renderedNews, toggleVote, onHideNews } = useRenderedNews({newsList, page, error });
+    const { renderedNews, upVote, downVote, onHideNews } = useRenderedNews({newsList, page, error });
     return (
         <Layout nav={nav}>
-            <NewsList onVote={toggleVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
+            <NewsList upVote={upVote} downVote={downVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
         </Layout>
     );
 }

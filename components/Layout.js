@@ -7,7 +7,7 @@ export default ({ children, nav }) => {
         <div className={styles.container}>
             <Head>
                 <meta charset='utf-8' />
-                <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+                <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
                 <meta name='viewport' content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' />
                 <meta name='description' content='A clone of Hacker News' />
                 <meta name='keywords' content='Hacker News Clone Demo' />

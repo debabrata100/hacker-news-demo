@@ -6,7 +6,7 @@ import { getMoreButtonLink } from '../utils';
 const getVoteClass = (votes) =>{
     return votes > 100 ? styles.excellent : (votes > 90 ? styles.good : ''); 
 }
-export default ({ newsList, error, onHideNews, onVote }) => {
+export default ({ newsList, error, onHideNews, upVote, downVote }) => {
     const router = useRouter() || { query: {}};
     const { slug , page = 0 } = router.query;
     const moreButtonLink = getMoreButtonLink({ slug, page });
@@ -16,11 +16,10 @@ export default ({ newsList, error, onHideNews, onVote }) => {
             newsList.map(news=>(<div key={news.id} className={styles.row}>
                 <div className={styles.comment}>{news.comments}<span className={styles.hideOnDesktop}>c</span></div>
                 <div className={`${styles.vote} ${getVoteClass(news.upvotes)} `}>{news.upvotes}<span className={styles.hideOnDesktop}>v</span></div>
-                <div 
-                className={news.isVoted ? styles.upvote : styles.downvote} 
-                onClick={() => onVote({ id: news.id, isVoted: !news.isVoted })}
-                title={news.isVoted ? 'unvote' : 'upvote'}
-                ></div>
+                <div className={styles.voteActions}>
+                    <div className={styles.downvote} onClick={() => upVote({ id: news.id})}></div>
+                    <div className={styles.upvote} onClick={() => downVote({ id: news.id})}></div>
+                </div>
                 <div className={styles.title}>{news.title}</div>
                 <div className={[styles.infoRows].join(' ')}>
                     <div className={styles.info}>({news.domain ? news.domain : ' NA '})</div>

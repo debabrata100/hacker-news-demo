@@ -48,17 +48,17 @@
 .upvote{
   width: 0px;
   height: 0px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid orange;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid grey;
   cursor: pointer;
 }
 .downvote{
  width: 0px;
   height: 0px;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 10px solid grey;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 12px solid grey;
   transform: rotate(180deg);
   cursor: pointer;
   
@@ -87,6 +87,12 @@
 }
 .hideOnDesktop{
     display: none;;
+}
+.voteActions{
+    flex-flow: column wrap;
+}
+.voteActions > div{
+    margin: 2px;
 }
 @media (max-width: 767px){
     .comment, .vote{
