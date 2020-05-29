@@ -1,7 +1,8 @@
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import NewsList from "../components/NewsList";
-import { getFormattedNews, getNewsApiUrl, getNewsFromLocal, storeNewsToLocal } from "../utils";
+import Graph from '../components/Graph';
+import { getFormattedNews, getNewsApiUrl, getNewsFromLocal, storeNewsToLocal, getFormattedGraphData } from "../utils";
 import { HOME_NAV } from "../utils/constants";
 
 export async function getServerSideProps(context){
@@ -17,16 +18,18 @@ export async function getServerSideProps(context){
 }
 
 export default function Home ({ newsList = null, page, error }) {
-    const { renderedNews, upVote, downVote, onHideNews } = useRenderedNews({newsList, page, error });
+    const { renderedNews, graphData, upVote, downVote, onHideNews } = useRenderedNews({newsList, page, error });
     return (
         <Layout nav={HOME_NAV}>
             <NewsList upVote={upVote} downVote={downVote} error={error} onHideNews={onHideNews} newsList={renderedNews} />
+            <Graph data={graphData} />
         </Layout>
     );
 }
 
 export function useRenderedNews({ newsList, page, error }){
     const [renderedNews, setRenderedNews] = useState([]); 
+    const graphData = getFormattedGraphData(renderedNews);
     useEffect(()=>{
         if(!error && newsList && newsList.hits.length > 0){
             const formattedData = getFormattedNews(newsList);
@@ -66,6 +69,7 @@ export function useRenderedNews({ newsList, page, error }){
     }
     return {
         renderedNews,
+        graphData,
         setRenderedNews,
         onHideNews,
         upVote, 

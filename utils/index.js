@@ -47,6 +47,13 @@ export const getFormattedNews = (newsList) => {
     }));
     return formattedData;
 }
+export const getFormattedGraphData = (newsList) => {
+    const formattedData = newsList.map(news=>({
+        id: news.id,
+        votes: news.upvotes
+    }));
+    return formattedData;
+}
 export const getNewsApiUrl = ({slug, page}) => { 
     let baseUrl = 'https://hn.algolia.com/api/v1';
     if(page > 0){

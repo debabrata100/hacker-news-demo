@@ -1,6 +1,8 @@
 .container{
     display: flex;
     flex-direction: column;
+    border-bottom: 2px solid #ff6600;
+    margin-bottom: 16px;
 }
 .row{
     display: flex;
@@ -113,7 +115,7 @@
     .comment ~div{
         margin-right: 0px;
     }
-    .upvote,.downvote{
+    .voteActions{
         position: absolute;
         left: 8px;
     }
